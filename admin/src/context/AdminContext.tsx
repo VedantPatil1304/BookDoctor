@@ -43,7 +43,8 @@ export const AdminContextProvider: React.FC<AdminContextProviderProps> = ({ chil
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      console.error('Error fetching doctors:', error);
+      toast.error('Failed to fetch doctors');
     }
   };
 
@@ -62,7 +63,8 @@ export const AdminContextProvider: React.FC<AdminContextProviderProps> = ({ chil
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      console.error('Error changing availability:', error);
+      toast.error('Failed to change availability');
     }
   };
 
@@ -77,7 +79,8 @@ export const AdminContextProvider: React.FC<AdminContextProviderProps> = ({ chil
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      console.error('Error fetching appointments:', error);
+      toast.error('Failed to fetch appointments');
     }
   };
 
@@ -92,11 +95,13 @@ export const AdminContextProvider: React.FC<AdminContextProviderProps> = ({ chil
       if (data.success) {
         toast.success(data.message);
         getAllAppointments();
+        getDashData();
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      console.error('Error cancelling appointment:', error);
+      toast.error('Failed to cancel appointment');
     }
   };
 
@@ -112,7 +117,8 @@ export const AdminContextProvider: React.FC<AdminContextProviderProps> = ({ chil
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Something went wrong');
+      console.error('Error fetching dashboard data:', error);
+      toast.error('Failed to fetch dashboard data');
     }
   };
 

@@ -17,11 +17,11 @@ const MyProfile: React.FC = () => {
 
   React.useEffect(() => {
     if (userData) {
-      setName(userData.name);
-      setPhone(userData.phone);
-      setAddress(userData.address);
-      setGender(userData.gender);
-      setDob(userData.dob);
+      setName(userData.name || '');
+      setPhone(userData.phone || '');
+      setAddress(userData.address || { line1: '', line2: '' });
+      setGender(userData.gender || 'Male'); // fallback to Male
+      setDob(userData.dob || '');
     }
   }, [userData]);
 
@@ -39,7 +39,7 @@ const MyProfile: React.FC = () => {
       }
 
       const { data } = await axios.post(`${backendUrl}/api/user/update-profile`, formData, {
-        headers: { token }
+        headers: { token },
       });
 
       if (data.success) {
@@ -63,7 +63,12 @@ const MyProfile: React.FC = () => {
           <div className="inline-block relative cursor-pointer">
             <img
               className="w-36 rounded opacity-75"
-              src={image ? URL.createObjectURL(image) : userData.image || 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
+              src={
+                image
+                  ? URL.createObjectURL(image)
+                  : userData.image ||
+                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+              }
               alt="Profile"
             />
             <img
@@ -82,7 +87,10 @@ const MyProfile: React.FC = () => {
       ) : (
         <img
           className="w-36 rounded"
-          src={userData.image || 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
+          src={
+            userData.image ||
+            'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          }
           alt="Profile"
         />
       )}
@@ -121,14 +129,14 @@ const MyProfile: React.FC = () => {
             <p>
               <input
                 className="bg-gray-50"
-                onChange={(e) => setAddress(prev => ({ ...prev, line1: e.target.value }))}
+                onChange={(e) => setAddress((prev) => ({ ...prev, line1: e.target.value }))}
                 value={address.line1}
                 type="text"
               />
               <br />
               <input
                 className="bg-gray-50"
-                onChange={(e) => setAddress(prev => ({ ...prev, line2: e.target.value }))}
+                onChange={(e) => setAddress((prev) => ({ ...prev, line2: e.target.value }))}
                 value={address.line2}
                 type="text"
               />
@@ -149,15 +157,16 @@ const MyProfile: React.FC = () => {
           <p className="font-medium">Gender:</p>
           {isEdit ? (
             <select
-              className="max-w-20 bg-gray-100"
+              className="max-w-24 bg-gray-100"
               onChange={(e) => setGender(e.target.value)}
-              value={gender}
+              value={gender || 'Male'}
             >
+              <option value="">Not selected</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           ) : (
-            <p className="text-gray-400">{userData.gender}</p>
+            <p className="text-gray-400">{userData.gender || 'Not selected'}</p>
           )}
           <p className="font-medium">Birthday:</p>
           {isEdit ? (

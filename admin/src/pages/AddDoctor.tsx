@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Upload } from 'lucide-react';
 import { useAdminContext } from '../context/AdminContext';
 import { toast } from 'react-toastify';
