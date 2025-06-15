@@ -60,14 +60,14 @@ const Login: React.FC = () => {
             <p className="text-gray-600 mt-2">Access the admin dashboard</p>
           </div>
 
-          {/* Demo Credentials */}
+          {/* Demo Credentials
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
             <h3 className="font-semibold text-blue-800 mb-2">Demo Credentials:</h3>
             <p className="text-sm text-blue-700">
               <strong>Email:</strong> admin@bookdoctor.com<br />
               <strong>Password:</strong> admin123
             </p>
-          </div>
+          </div> */}
 
           <form onSubmit={onSubmitHandler} className="space-y-6">
             <div>

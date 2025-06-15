@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-// Load environment variables first, before any other imports
+// Load environment variables
 dotenv.config();
 
 import express from 'express';
@@ -11,16 +11,17 @@ import userRouter from './routes/userRoute.js';
 import doctorRouter from './routes/doctorRoute.js';
 import adminRouter from './routes/adminRoute.js';
 
-// App config
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Connect to database and Cloudinary
+// Connect DB and Cloudinary
 connectDB();
 connectCloudinary();
 
-// Allowed origins
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5175'];
+// Parse comma-separated origins from .env
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
+  : [];
 
 // Middleware
 app.use(express.json());
@@ -35,7 +36,7 @@ app.use(cors({
   credentials: true
 }));
 
-// API routes
+// Routes
 app.use('/api/user', userRouter);
 app.use('/api/doctor', doctorRouter);
 app.use('/api/admin', adminRouter);
@@ -47,5 +48,5 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`✅ Server running on port ${port}`);
 });
