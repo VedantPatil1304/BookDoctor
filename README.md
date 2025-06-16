@@ -17,7 +17,7 @@
 - Automated appointment confirmations and reminders
 - Flexible cancellation and rescheduling options
 
-### 💳 **Secure Payment Integration**
+### 💳 **Secure Payment Integration**[Not Yet]
 - **Stripe** integration for international payments
 - **Razorpay** support for Indian market
 - Secure transaction processing with payment history
@@ -218,7 +218,7 @@ The backend is deployed on Render, which may cause initial delays due to cold st
 - Build: `npm run build`
 - Deploy separately from the main frontend
 
-## 🔗 Live Demo
+## 🔗 Live Demo[Not Yet]
 
 - **Frontend**: [Live Demo Link]
 - **Admin Panel**: [Admin Demo Link]
@@ -241,9 +241,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Developer
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [@VedantPatil1304](https://github.com/VedantPatil1304)
+- LinkedIn: [@vedantpatil](linkedin.com/in/vedant-patil-9314a1258/)
+- Email: vedpvt1304@gmail.com
 
 ## 🙏 Acknowledgments
 
