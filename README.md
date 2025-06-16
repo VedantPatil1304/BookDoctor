@@ -242,7 +242,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name**
 - GitHub: [@VedantPatil1304](https://github.com/VedantPatil1304)
-- LinkedIn: [@vedantpatil](linkedin.com/in/vedant-patil-9314a1258/)
+- LinkedIn: [@vedantpatil](https://linkedin.com/in/vedant-patil-9314a1258/)
 - Email: vedpvt1304@gmail.com
 
 ## 🙏 Acknowledgments
